@@ -36,6 +36,24 @@
                             "xml": false,
                             "count": 1
                         }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CoreImage.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "AudioToolbox.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
                     ]
                 }
             },
@@ -52,11 +70,11 @@
         }
     },
     "installed_plugins": {
-        "com.phonegap.plugins.barcodescanner": {
-            "PACKAGE_NAME": "com.phonegap.ryanw.barcodedemo"
-        },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.phonegap.ryanw.barcodedemo"
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },
     "dependent_plugins": {}
