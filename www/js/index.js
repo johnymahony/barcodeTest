@@ -17,6 +17,7 @@
  * under the License.
  */
  function scan() {
+	 alert('scan start');
  cordova.plugins.barcodeScanner.scan(
       function (result) {
           alert("We got a barcode\n" +
@@ -33,6 +34,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
+    	alert('initialize');
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -40,6 +42,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
+    	alert('bind events');
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
@@ -47,10 +50,12 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+    	alert('onDeviceReady');
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+    	alert('receivedEvent '+id);
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -62,4 +67,6 @@ var app = {
     }
 };
 
+alert('before initialize');
 app.initialize();
+alert('after initialize');
