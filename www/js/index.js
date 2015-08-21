@@ -32,11 +32,14 @@ var app = {
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
+    
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+    	app.receivedEvent('deviceready');
+    	document.addEventListener("resume", onDeviceResume, false);    
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+    	alert('receivedEvent '+id);
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -47,5 +50,9 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-
+function onDeviceResume() {
+	setTimeout(function() {
+		alert('resume');
+      }, 0);
+}
 app.initialize();
