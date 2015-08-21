@@ -37,12 +37,10 @@ var app = {
     // function, we must explicity call `app.receivedEvent(...);`
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        document.addEventListener("resume", onDeviceResume, false);    
     },
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-    	alert('receivedEvent '+id);
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -56,7 +54,7 @@ var app = {
     scan: function() {
         console.log('scanning');
         
-        var scanner = cordova.plugins.barcodeScanner;
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.scan( function (result) { 
 
@@ -83,7 +81,7 @@ var app = {
     },
 
     encode: function() {
-        var scanner = cordova.plugins.barcodeScanner;
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
             alert("encode success: " + success);
@@ -95,8 +93,3 @@ var app = {
     }
 
 };
-function onDeviceResume() {
-	setTimeout(function() {
-		alert('resume');
-      }, 0);
-}
